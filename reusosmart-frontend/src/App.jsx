@@ -1,0 +1,39 @@
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/navbar";
+import Home from "./components/home";
+import About from "./components/about";
+import Points from "./components/points";
+import Contacto from "./components/contacto";
+import Login from "./components/login";
+import Register from "./components/register";
+import ForgotPassword from "./components/forgotPassword";
+import ResetPassword from "./components/resetPassword";
+import Footer from "./components/footer";
+import Profile from "./components/Profile";
+
+function App() {
+  return (
+    <Router>
+      <div className="min-h-screen flex flex-col bg-emerald-50 text-gray-800">
+        <Navbar />
+        <main className="grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/nosotros" element={<About />} />
+            <Route path="/puntos" element={<Points />} />
+            <Route path="/contacto" element={<Contacto />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/forgotPassword" element={<ForgotPassword />} />
+            <Route path="/resetPassword" element={<ResetPassword />} />
+            <Route path="/perfil" element={<Profile />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
+}
+
+export default App;

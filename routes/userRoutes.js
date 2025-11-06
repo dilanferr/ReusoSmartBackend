@@ -58,32 +58,9 @@ router.post("/login", async (req, res) => {
 
     if (!user) return res.status(404).json({ msg: "Usuario no encontrado" });
 
-    // Verificar si el usuario está bloqueado
-    if (user.seguridad.bloqueado) {
-      return res.status(403).json({ msg: "Usuario bloqueado temporalmente" });
-    }
-
+    // Validar contraseña
     const match = await bcrypt.compare(password, user.credenciales.hash);
-
-    if (!match) {
-      // Incrementar intentos fallidos
-      user.seguridad.intentos_fallidos += 1;
-
-      // Bloquear usuario si llega a 5 intentos
-      if (user.seguridad.intentos_fallidos >= 5) {
-        user.seguridad.bloqueado = true;
-      }
-
-      await user.save();
-      return res.status(400).json({
-        msg: `Contraseña incorrecta. Intentos fallidos: ${user.seguridad.intentos_fallidos}`,
-      });
-    }
-
-    // Login exitoso: resetear intentos
-    user.seguridad.intentos_fallidos = 0;
-    user.seguridad.ultimo_acceso = new Date();
-    await user.save();
+    if (!match) return res.status(400).json({ msg: "Contraseña incorrecta" });
 
     // Generar JWT
     const token = jwt.sign(
@@ -91,6 +68,9 @@ router.post("/login", async (req, res) => {
       process.env.JWT_SECRET || "mi_clave_secreta",
       { expiresIn: "1h" }
     );
+
+    user.seguridad.ultimo_acceso = new Date();
+    await user.save();
 
     res.json({
       msg: "Login exitoso",

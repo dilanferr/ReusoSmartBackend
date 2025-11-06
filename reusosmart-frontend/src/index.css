@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Colores y fondo base */
+body {
+  background-color: var(--color-ecoLight);
+  color: var(--color-ecoDark);
+  font-family: "Poppins", sans-serif;
+}

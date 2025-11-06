@@ -1,0 +1,50 @@
+import React from "react";
+
+const Footer = () => {
+  return (
+    <footer className="bg-emerald-50 border-t border-emerald-200 text-gray-700 py-10 mt-16">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        {/* Logo y descripción */}
+        <div className="flex flex-col items-start">
+          <div className="flex items-center mb-3">
+            <img
+              src="/src/assets/logo.png"
+              alt="ReusoSmart Logo"
+              className="w-10 h-10 mr-2"
+            />
+            <span className="text-xl font-semibold text-emerald-700">ReusoSmart</span>
+          </div>
+          <p className="text-sm text-gray-600">
+            Tecnología que regresa al planeta 🌍. Promoviendo el reciclaje
+            electrónico y la sostenibilidad en Chile.
+          </p>
+        </div>
+
+        {/* Enlaces */}
+        <div className="flex flex-col space-y-2">
+          <h3 className="font-semibold text-emerald-800 mb-2">Enlaces útiles</h3>
+          <a href="#inicio" className="hover:text-emerald-600">Inicio</a>
+          <a href="#nosotros" className="hover:text-emerald-600">Sobre Nosotros</a>
+          <a href="#puntos" className="hover:text-emerald-600">Puntos de Reciclaje</a>
+          <a href="#contacto" className="hover:text-emerald-600">Contacto</a>
+        </div>
+
+        {/* Información legal */}
+        <div className="flex flex-col space-y-2">
+          <h3 className="font-semibold text-emerald-800 mb-2">Información</h3>
+          <a href="#" className="hover:text-emerald-600">Política de privacidad</a>
+          <a href="#" className="hover:text-emerald-600">Términos y condiciones</a>
+          <a href="#" className="hover:text-emerald-600">Soporte técnico</a>
+        </div>
+      </div>
+
+      {/* Línea inferior */}
+      <div className="border-t border-emerald-200 mt-8 pt-4 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} ReusoSmart. Todos los derechos reservados.
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
