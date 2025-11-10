@@ -37,6 +37,7 @@ const Navbar = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
     localStorage.removeItem("userEmail");
+    localStorage.removeItem("userRole");
     setIsLoggedIn(false);
     goTo("/");
   };

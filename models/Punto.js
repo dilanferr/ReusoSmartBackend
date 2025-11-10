@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const puntoSchema = new mongoose.Schema({
   id: { type: Number, required: true },
@@ -22,4 +22,4 @@ const puntoSchema = new mongoose.Schema({
   materiales_aceptados: String,
 });
 
-module.exports = mongoose.model("Punto", puntoSchema);
+export default mongoose.model("Punto", puntoSchema);

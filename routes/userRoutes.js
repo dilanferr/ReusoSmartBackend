@@ -1,8 +1,8 @@
-const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const nodemailer = require("nodemailer");
-const User = require("../models/User");
+import express from "express";
+import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import nodemailer from "nodemailer";
+import User from "../models/User.js";
 
 const router = express.Router();
 
@@ -11,7 +11,7 @@ const router = express.Router();
 // =====================
 router.post("/register", async (req, res) => {
   try {
-    const { nombre, email, password } = req.body;
+    const { nombre, email, password, rol } = req.body;
 
     if (await User.findOne({ email })) {
       return res.status(400).json({ msg: "Usuario ya existe" });
@@ -28,6 +28,9 @@ router.post("/register", async (req, res) => {
     // Hash con bcrypt
     const hash = await bcrypt.hash(password, 10);
 
+    // Rol: 1 = usuario normal (por defecto), 2 = admin
+    const rolNumero = rol === 2 ? 2 : 1;
+
     const newUser = new User({
       nombre,
       email,
@@ -36,13 +39,14 @@ router.post("/register", async (req, res) => {
         algoritmo: "bcrypt",
         ultimo_cambio: new Date(),
       },
+      rol: rolNumero,
       fecha_registro: new Date(),
       activo: true,
       seguridad: { intentos_fallidos: 0, ultimo_acceso: null, bloqueado: false },
     });
 
     await newUser.save();
-    res.status(201).json({ msg: "Usuario registrado exitosamente" });
+    res.status(201).json({ msg: "Usuario registrado exitosamente", rol: newUser.rol });
   } catch (error) {
     res.status(500).json({ msg: "Error al registrar usuario", error });
   }
@@ -74,7 +78,7 @@ router.post("/login", async (req, res) => {
 
     res.json({
       msg: "Login exitoso",
-      usuario: { nombre: user.nombre, email: user.email },
+      usuario: { nombre: user.nombre, email: user.email, rol: user.rol },
       token,
     });
   } catch (error) {
@@ -182,4 +186,64 @@ router.post("/reset-password", async (req, res) => {
   }
 });
 
-module.exports = router;
+// =====================
+// STATS / COUNT USERS
+// =====================
+router.get("/count", async (_req, res) => {
+  try {
+    const total = await User.countDocuments({});
+    const admins = await User.countDocuments({ rol: 2 });
+    const activos = await User.countDocuments({ activo: true });
+    res.json({ total, admins, activos });
+  } catch (error) {
+    res.status(500).json({ msg: "Error al obtener conteo de usuarios", error });
+  }
+});
+
+// =====================
+// LISTAR USUARIOS (solo campos públicos)
+// =====================
+router.get("/", async (_req, res) => {
+  try {
+    const users = await User.find(
+      {},
+      {
+        nombre: 1,
+        email: 1,
+        rol: 1,
+        activo: 1,
+        fecha_registro: 1,
+        seguridad: 1,
+      }
+    ).lean();
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ msg: "Error al listar usuarios", error });
+  }
+});
+
+// =====================
+// CAMBIAR ROL DE USUARIO (1 usuario, 2 admin)
+// =====================
+router.put("/:id/role", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { rol } = req.body;
+    const nuevoRol = Number(rol);
+    if (![1, 2].includes(nuevoRol)) {
+      return res.status(400).json({ msg: "Rol inválido. Use 1 o 2" });
+    }
+
+    const user = await User.findById(id);
+    if (!user) return res.status(404).json({ msg: "Usuario no encontrado" });
+
+    user.rol = nuevoRol;
+    await user.save();
+
+    res.json({ msg: "Rol actualizado", usuario: { _id: user._id, nombre: user.nombre, email: user.email, rol: user.rol } });
+  } catch (error) {
+    res.status(500).json({ msg: "Error al actualizar rol", error });
+  }
+});
+
+export default router;

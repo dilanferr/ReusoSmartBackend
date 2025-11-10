@@ -28,6 +28,9 @@ const Login = () => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("userName", data.usuario.nombre);
         localStorage.setItem("userEmail", data.usuario.email);
+        if (data?.usuario?.rol !== undefined && data?.usuario?.rol !== null) {
+          localStorage.setItem("userRole", String(data.usuario.rol));
+        }
 
         // 🔄 Notificar al resto de la app que el login cambió
         window.dispatchEvent(new Event("storage"));

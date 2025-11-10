@@ -11,6 +11,7 @@ import ForgotPassword from "./components/forgotPassword";
 import ResetPassword from "./components/resetPassword";
 import Footer from "./components/footer";
 import Profile from "./components/Profile";
+import AdminDashboard from "./components/AdminDashboard";
 
 function App() {
   return (
@@ -28,6 +29,8 @@ function App() {
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/resetPassword" element={<ResetPassword />} />
             <Route path="/perfil" element={<Profile />} />
+            {/* Ruta directa al Dashboard de Administración */}
+            <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
         </main>
         <Footer />

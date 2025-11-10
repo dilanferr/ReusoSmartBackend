@@ -5,6 +5,8 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import dotenv from "dotenv";
+import userRoutes from "./routes/userRoutes.js";
+import pointsRoutes from "./routes/pointsRoutes.js";
 
 // =======================
 //  Configuración inicial
@@ -28,31 +30,11 @@ mongoose
   .catch((err) => console.error("❌ Error al conectar con MongoDB:", err));
 
 // =======================
-//  Esquema y Modelo
-// =======================
-const puntoSchema = new mongoose.Schema({
-  comuna_nombre: String,
-  direccion_completa: String,
-  latitud: Number,
-  longitud: Number,
-});
-
-const Punto = mongoose.model("Punto", puntoSchema);
-
-// =======================
 //  Rutas API
 // =======================
-
-// Obtener todos los puntos
-app.get("/api/puntos", async (req, res) => {
-  try {
-    const puntos = await Punto.find();
-    res.json(puntos);
-  } catch (error) {
-    console.error("❌ Error al obtener puntos:", error);
-    res.status(500).json({ error: "Error al obtener puntos" });
-  }
-});
+// Montar rutas de usuarios y puntos
+app.use("/api/users", userRoutes);
+app.use("/api/puntos", pointsRoutes);
 
 // Ruta de prueba (opcional)
 app.get("/", (req, res) => {

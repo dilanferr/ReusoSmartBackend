@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const credencialesSchema = new mongoose.Schema({
   hash: { type: String, required: true },
@@ -16,6 +16,8 @@ const userSchema = new mongoose.Schema({
   nombre: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   credenciales: { type: credencialesSchema, required: true },
+  // Rol de usuario: 1 = normal, 2 = admin
+  rol: { type: Number, enum: [1, 2], default: 1 },
   fecha_registro: { type: Date, default: Date.now },
   activo: { type: Boolean, default: true },
   seguridad: { type: seguridadSchema, default: () => ({}) },
@@ -32,4 +34,4 @@ const userSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("User", userSchema);
+export default mongoose.model("User", userSchema);
