@@ -53,12 +53,12 @@ const Profile = () => {
   const storedRole = localStorage.getItem("userRole");
   const isAdmin =
     Number(role ?? storedRole) === 2 || String(role ?? storedRole).toLowerCase() === "admin";
+  const isRole2 = Number(role ?? storedRole) === 2; // Solo rol numérico 2
   const tabs = isAdmin
     ? [
         { key: "perfil", label: "Perfil" },
-        { key: "puntos", label: "Puntos" },
-        { key: "medallas", label: "Medallas" },
         { key: "admin", label: "DashBoard" },
+        ...(isRole2 ? [{ key: "admin-puntos", label: "Puntos de Reciclaje" }] : []),
       ]
     : [
         { key: "perfil", label: "Perfil" },
@@ -120,6 +120,8 @@ const Profile = () => {
               </button>
             ))}
           </nav>
+
+          {/* Botón adicional solo para rol 2 ya incluido en tabs */}
         </aside>
 
         {/* Main Content */}
@@ -228,6 +230,20 @@ const Profile = () => {
 
           {activeTab === "admin" && isAdmin && (
             <AdminDashboard />
+          )}
+
+          {/* Contenido de la subcategoría solo para rol 2 */}
+          {activeTab === "admin-puntos" && isRole2 && (
+            <div>
+              <h2 className="text-3xl font-bold text-emerald-700 mb-8">Puntos de Reciclaje</h2>
+              <p className="text-gray-600 mb-4">Accede al mapa y gestiona puntos de reciclaje.</p>
+              <button
+                onClick={() => navigate("/puntos")}
+                className="bg-emerald-600 text-white px-8 py-3 rounded-lg hover:bg-emerald-700 transition"
+              >
+                Ir al mapa de puntos
+              </button>
+            </div>
           )}
         </section>
       </div>

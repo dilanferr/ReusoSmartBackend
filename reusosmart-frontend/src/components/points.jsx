@@ -35,7 +35,7 @@ export default function Points() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-lineal-to-br from-emerald-50 to-emerald-100 pt-24 relative z-0">
+    <div className="min-h-screen bg-lineal-to-br from-emerald-50 to-emerald-100 pt-28 md:pt-32 pb-12 relative z-0">
       <div className="max-w-7xl mx-auto p-6 relative">
         {/* 🟩 Encabezado */}
         <div className="bg-white/90 backdrop-blur-md border border-emerald-200 rounded-2xl shadow-md p-6 text-center mb-6 relative z-10">

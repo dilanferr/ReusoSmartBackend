@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -24,18 +25,17 @@ const Footer = () => {
         {/* Enlaces */}
         <div className="flex flex-col space-y-2">
           <h3 className="font-semibold text-emerald-800 mb-2">Enlaces útiles</h3>
-          <a href="#inicio" className="hover:text-emerald-600">Inicio</a>
-          <a href="#nosotros" className="hover:text-emerald-600">Sobre Nosotros</a>
+          <Link to="/" className="hover:text-emerald-600">Inicio</Link>
+          <Link to="/nosotros" className="hover:text-emerald-600">Sobre Nosotros</Link>
           <a href="#puntos" className="hover:text-emerald-600">Puntos de Reciclaje</a>
-          <a href="#contacto" className="hover:text-emerald-600">Contacto</a>
+          <Link to="/contacto" className="hover:text-emerald-600">Contacto</Link>
         </div>
 
         {/* Información legal */}
         <div className="flex flex-col space-y-2">
           <h3 className="font-semibold text-emerald-800 mb-2">Información</h3>
-          <a href="#" className="hover:text-emerald-600">Política de privacidad</a>
-          <a href="#" className="hover:text-emerald-600">Términos y condiciones</a>
-          <a href="#" className="hover:text-emerald-600">Soporte técnico</a>
+          <Link to="/privacidad" className="hover:text-emerald-600">Política de privacidad</Link>
+          <Link to="/terminos" className="hover:text-emerald-600">Términos y condiciones</Link>
         </div>
       </div>
 

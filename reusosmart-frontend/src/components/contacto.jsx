@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Contacto() {
   return (
-    <section className="py-20 bg-white text-center">
+    <section className="bg-white pt-28 md:pt-32 pb-20 text-center px-6">
       <h2 className="text-3xl font-bold text-emerald-700 mb-8">Contáctanos</h2>
       <p className="text-gray-600 max-w-2xl mx-auto mb-10">
         ¿Tienes dudas, sugerencias o quieres colaborar con ReusoSmart? 🌿  
