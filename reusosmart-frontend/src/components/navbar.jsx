@@ -73,7 +73,7 @@ const Navbar = () => {
             </button>
           </li>
           <li>
-            <button onClick={() => goTo("/puntos")} className="hover:text-emerald-200 transition">
+            <button onClick={() => goTo("/infopuntos")} className="hover:text-emerald-200 transition">
               Puntos de Reciclaje
             </button>
           </li>

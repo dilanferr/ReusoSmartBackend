@@ -15,6 +15,8 @@ import Privacy from "./components/privacy";
 import Terms from "./components/terms";
 import Profile from "./components/Profile";
 import AdminDashboard from "./components/AdminDashboard";
+import InfoPuntos from "./components/detPuntos";
+
 
 function App() {
   return (
@@ -35,8 +37,8 @@ function App() {
             <Route path="/forgotPassword" element={<ForgotPassword />} />
             <Route path="/resetPassword" element={<ResetPassword />} />
             <Route path="/perfil" element={<Profile />} />
-            {/* Ruta directa al Dashboard de Administración */}
-            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/infopuntos" element={<InfoPuntos />} />
+            <Route path="/admin" element={<AdminDashboard />} />  {/* Ruta directa al Dashboard de Administración */}
           </Routes>
         </main>
         <Footer />

@@ -10,7 +10,6 @@ body {
   color: var(--color-ecoDark);
   font-family: "Poppins", sans-serif;
 }
-@import "tailwindcss";
 
 :root {
   --color-ecoDark: #0f4d3f;
@@ -107,4 +106,23 @@ h2, h3 {
 .medalla-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 12px rgba(0, 128, 96, 0.2);
+}
+
+/* Animaciones para acordeón */
+@keyframes accordion-down {
+  from { height: 0 }
+  to { height: var(--radix-accordion-content-height) }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height) }
+  to { height: 0 }
+}
+
+[data-state='open'] {
+  animation: accordion-down 0.3s ease-out;
+}
+
+[data-state='closed'] {
+  animation: accordion-up 0.3s ease-in;
 }

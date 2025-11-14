@@ -4,6 +4,7 @@ const puntoSchema = new mongoose.Schema({
   id: { type: Number, required: true },
   encargado: String,
   administrador: String,
+  nombre_punto: String,
   tipo_punto: String,
   estado: String,
   direccion_completa: String,
