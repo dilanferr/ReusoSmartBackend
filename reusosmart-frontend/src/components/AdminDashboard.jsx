@@ -111,22 +111,8 @@ function useMaterials(points) {
   }, [points])
 }
 
-function _runSmokeTests() {
-  try {
-    console.assert(Array.isArray(pointsData) && pointsData.length > 0, 'pointsData no debe estar vacío')
-    console.assert(Array.isArray(materialsData) && materialsData.length > 0, 'materialsData no debe estar vacío')
-    console.assert(
-      Array.isArray(kpiData) && kpiData.every(k => typeof k.titulo === 'string' && typeof k.valor === 'string' && typeof k.meta === 'string'),
-      'kpiData debe contener strings en titulo/valor/meta'
-    )
-    console.assert(kpiData.every(k => !/[<>]/.test(k.meta)), "kpi.meta no debe incluir '<' ni '>'")
-  } catch (e) {
-    // Evita romper render en producción; sólo log de diagnóstico
-    // eslint-disable-next-line no-console
-    console.warn('Smoke tests del dashboard fallaron:', e)
-  }
-}
-if (typeof window !== 'undefined') _runSmokeTests()
+// Smoke tests deshabilitados para evitar referencias a variables fuera de alcance
+// que generaban errores en consola durante la carga del dashboard.
 
 export default function AdminDashboard() {
   const { points, usersCount, users, loading, error, updateUserRole } = useDashboardData()

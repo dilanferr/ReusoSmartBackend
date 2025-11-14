@@ -87,10 +87,12 @@ export default function Points() {
                 attribution='&copy; <a href="https://www.maptiler.com/">MapTiler</a>'
               />
 
-              {puntos.map((punto) => (
+              {puntos
+                .filter((p) => Number.isFinite(Number(p.latitud)) && Number.isFinite(Number(p.longitud)))
+                .map((punto) => (
                 <Marker
                   key={punto._id}
-                  position={[punto.latitud, punto.longitud]}
+                  position={[Number(punto.latitud), Number(punto.longitud)]}
                   icon={recyclePhoneIcon}
                 >
                   <Popup>

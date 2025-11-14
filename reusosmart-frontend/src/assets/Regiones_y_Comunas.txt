@@ -1,0 +1,683 @@
+XV. Región de Arica y Parinacota
+
+Arica
+
+Camarones
+
+Putre
+
+General Lagos
+
+I. Región de Tarapacá
+
+Iquique
+
+Alto Hospicio
+
+Pozo Almonte
+
+Camiña
+
+Colchane
+
+Huara
+
+Pica
+
+II. Región de Antofagasta
+
+Antofagasta
+
+Mejillones
+
+Sierra Gorda
+
+Taltal
+
+Calama
+
+Ollagüe
+
+San Pedro de Atacama
+
+Tocopilla
+
+María Elena
+
+III. Región de Atacama
+
+Copiapó
+
+Caldera
+
+Tierra Amarilla
+
+Chañaral
+
+Diego de Almagro
+
+Vallenar
+
+Alto del Carmen
+
+Freirina
+
+Huasco
+
+IV. Región de Coquimbo
+
+Elqui Province
+
+La Serena
+
+Coquimbo
+
+Andacollo
+
+La Higuera
+
+Paihuano
+
+Vicuña
+
+Choapa Province
+
+Illapel
+
+Canela
+
+Los Vilos
+
+Salamanca
+
+Limarí Province
+
+Ovalle
+
+Combarbalá
+
+Monte Patria
+
+Punitaqui
+
+Río Hurtado
+
+V. Región de Valparaíso
+
+Valparaíso
+
+Viña del Mar
+
+Concón
+
+Quilpué
+
+Villa Alemana
+
+Casablanca
+
+Juan Fernández
+
+San Antonio
+
+Cartagena
+
+El Tabo
+
+El Quisco
+
+Algarrobo
+
+Santo Domingo
+
+San Felipe
+
+Llay-Llay
+
+Catemu
+
+Panquehue
+
+Putaendo
+
+Santa María
+
+Los Andes
+
+Calle Larga
+
+Rinconada
+
+San Esteban
+
+Quillota
+
+Calera
+
+Hijuelas
+
+La Cruz
+
+Nogales
+
+Limache
+
+Olmué
+
+Isla de Pascua (Rapa Nui)
+
+Región Metropolitana de Santiago 
+
+Santiago
+
+Providencia
+
+Ñuñoa
+
+La Reina
+
+Las Condes
+
+Vitacura
+
+Lo Barnechea
+
+Recoleta
+
+Independencia
+
+Conchalí
+
+Huechuraba
+
+Quilicura
+
+Renca
+
+Quinta Normal
+
+Cerro Navia
+
+Lo Prado
+
+Estación Central
+
+Maipú
+
+Cerrillos
+
+Pedro Aguirre Cerda
+
+San Miguel
+
+San Joaquín
+
+Macul
+
+La Florida
+
+La Granja
+
+El Bosque
+
+San Ramón
+
+La Cisterna
+
+Lo Espejo
+
+Pudahuel
+
+Peñalolén
+
+Puente Alto
+
+San José de Maipo
+
+Pirque
+
+Colina
+
+Lampa
+
+Tiltil
+
+Buin
+
+Paine
+
+San Bernardo
+
+Calera de Tango
+
+Padre Hurtado
+
+Peñaflor
+
+Talagante
+
+Isla de Maipo
+
+El Monte
+
+Melipilla
+
+Curacaví
+
+María Pinto
+
+San Pedro
+
+Alhué
+
+VI. Región del Libertador Bernardo O’Higgins
+
+Rancagua
+
+Machalí
+
+Graneros
+
+Codegua
+
+Rengo
+
+Requínoa
+
+San Vicente
+
+Las Cabras
+
+Peumo
+
+Pichidegua
+
+Malloa
+
+Quinta de Tilcoco
+
+San Fernando
+
+Chimbarongo
+
+Nancagua
+
+Placilla
+
+Santa Cruz
+
+Chépica
+
+Lolol
+
+Palmilla
+
+Peralillo
+
+Pumanque
+
+Paredones
+
+Pichilemu
+
+Marchihue
+
+La Estrella
+
+Navidad
+
+VII. Región del Maule
+
+Talca
+
+Constitución
+
+Curepto
+
+Empedrado
+
+Maule
+
+Pelarco
+
+Pencahue
+
+Río Claro
+
+San Clemente
+
+San Rafael
+
+Curicó
+
+Hualañé
+
+Licantén
+
+Molina
+
+Rauco
+
+Romeral
+
+Sagrada Familia
+
+Teno
+
+Vichuquén
+
+Linares
+
+Colbún
+
+Longaví
+
+Parral
+
+Retiro
+
+San Javier
+
+Villa Alegre
+
+Yerbas Buenas
+
+Cauquenes
+
+Chanco
+
+Pelluhue
+
+XVI. Región de Ñuble
+
+Chillán
+
+Chillán Viejo
+
+Bulnes
+
+Cabrero
+
+El Carmen
+
+Pemuco
+
+Pinto
+
+Quillón
+
+San Ignacio
+
+Yungay
+
+San Carlos
+
+Coihueco
+
+Ñiquén
+
+San Fabián
+
+San Nicolás
+
+Quirihue
+
+Cobquecura
+
+Ninhue
+
+Portezuelo
+
+Ránquil
+
+Trehuaco
+
+VIII. Región del Biobío
+
+Concepción
+
+Talcahuano
+
+Hualpén
+
+San Pedro de la Paz
+
+Chiguayante
+
+Hualqui
+
+Penco
+
+Tomé
+
+Coronel
+
+Lota
+
+Santa Juana
+
+Florida
+
+Cabrero
+
+Yumbel
+
+Laja
+
+San Rosendo
+
+Los Ángeles
+
+Mulchén
+
+Nacimiento
+
+Negrete
+
+Quilaco
+
+Quilleco
+
+Santa Bárbara
+
+Tucapel
+
+Antuco
+
+Alto Biobío
+
+Arauco
+
+Cañete
+
+Contulmo
+
+Curanilahue
+
+Lebu
+
+Los Álamos
+
+Tirúa
+
+IX. Región de La Araucanía
+
+Temuco
+
+Padre Las Casas
+
+Nueva Imperial
+
+Carahue
+
+Cholchol
+
+Freire
+
+Pitrufquén
+
+Teodoro Schmidt
+
+Toltén
+
+Cunco
+
+Curarrehue
+
+Lautaro
+
+Melipeuco
+
+Perquenco
+
+Pucón
+
+Saavedra
+
+Vilcún
+
+Villarrica
+
+Angol
+
+Collipulli
+
+Curacautín
+
+Ercilla
+
+Lonquimay
+
+Los Sauces
+
+Lumaco
+
+Purén
+
+Renaico
+
+Traiguén
+
+Victoria
+
+XIV. Región de Los Ríos
+
+Valdivia
+
+Corral
+
+Lanco
+
+Los Lagos
+
+Máfil
+
+Mariquina
+
+Paillaco
+
+Panguipulli
+
+La Unión
+
+Futrono
+
+Lago Ranco
+
+Río Bueno
+
+X. Región de Los Lagos
+
+Puerto Montt
+
+Cochamó
+
+Fresia
+
+Frutillar
+
+Los Muermos
+
+Llanquihue
+
+Maullín
+
+Puerto Varas
+
+Osorno
+
+Puyehue
+
+Río Negro
+
+Purranque
+
+San Juan de la Costa
+
+San Pablo
+
+Castro
+
+Chonchi
+
+Curaco de Vélez
+
+Dalcahue
+
+Puqueldón
+
+Queilén
+
+Quellón
+
+Quemchi
+
+Quinchao
+
+Ancud
+
+XI. Región de Aysén del General Carlos Ibáñez del Campo
+
+Coyhaique
+
+Lago Verde
+
+Aysén
+
+Cisnes
+
+Guaitecas
+
+Cochrane
+
+O’Higgins
+
+Tortel
+
+Chile Chico
+
+Río Ibáñez
+
+XII. Región de Magallanes y Antártica Chilena
+
+Punta Arenas
+
+Laguna Blanca
+
+Río Verde
+
+San Gregorio
+
+Cabo de Hornos
+
+Antártica
+
+Porvenir
+
+Primavera
+
+Timaukel
+
+Puerto Natales
+
+Torres del Paine

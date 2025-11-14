@@ -1,0 +1,375 @@
+🔌 1. Grandes electrodomésticos
+
+Refrigeradores
+
+Congeladores
+
+Cocinas eléctricas
+
+Hornos eléctricos
+
+Microondas
+
+Lavadoras
+
+Secadoras de ropa
+
+Lavavajillas
+
+Aires acondicionados
+
+Calefactores eléctricos
+
+Termos eléctricos / calefones eléctricos
+
+Aspiradoras grandes
+
+Campanas de cocina
+
+Hidroneumáticos eléctricos
+
+Purificadores de aire grandes
+
+Estufas eléctricas
+
+Máquinas de ejercicio eléctricas (trotadoras, bicicletas estáticas)
+
+Termoventiladores
+
+Ventiladores grandes de pie
+
+Extractores de aire
+
+🖥️ 2. Equipos informáticos y de telecomunicaciones
+
+Computadores de escritorio
+
+Notebooks / laptops
+
+Ultrabooks
+
+Tablets
+
+Monitores
+
+Teclados
+
+Mouse
+
+Impresoras
+
+Escáneres
+
+Fax
+
+Servidores
+
+Routers
+
+Switch de red
+
+Módems
+
+Repetidores WiFi
+
+Discos duros externos
+
+Memorias USB
+
+Lectores de tarjetas SD
+
+Tarjetas gráficas
+
+Placas madre
+
+CPUs
+
+Fuentes de poder
+
+Gabinetes de PC
+
+Pantallas táctiles
+
+Relojes inteligentes
+
+Smartbands
+
+Celular
+
+Teléfonos fijos
+
+Teléfonos IP
+
+📱 3. Aparatos electrónicos de consumo
+
+Televisores (LCD, LED, plasma)
+
+Radios
+
+Parlantes Bluetooth
+
+Parlantes de casa
+
+Home theater
+
+DVD y Blu-ray
+
+Consolas de videojuegos
+
+Controles de videojuegos
+
+Cámaras fotográficas digitales
+
+Cámaras de video
+
+Drones
+
+Proyectores
+
+Equipos de sonido HI-FI
+
+Tocadiscos electrónicos
+
+Decodificadores TV
+
+Receptores satelitales
+
+Antenas activas
+
+Tablets Kids
+
+Calculadoras electrónicas
+
+MP3 y MP4
+
+iPods
+
+Reproductores digitales portátiles
+
+🛠️ 4. Herramientas eléctricas
+
+Taladros eléctricos
+
+Atornilladores
+
+Sierras eléctricas
+
+Cierras caladoras
+
+Lijadoras
+
+Pulidoras
+
+Esmeriles
+
+Soldadoras eléctricas
+
+Mezcladoras eléctricas
+
+Hornos de calor (heat gun)
+
+Compresores eléctricos
+
+Amoladoras
+
+Hidrolavadoras
+
+Martillos demoledores
+
+Multiherramientas (Dremel)
+
+🏠 5. Dispositivos del hogar
+
+Tostadoras
+
+Hervidores eléctricos
+
+Minipimers
+
+Batidoras
+
+Procesadores de alimentos
+
+Licuadoras
+
+Sandwicheras
+
+Freidoras eléctricas
+
+Freidoras de aire
+
+Máquinas de coser eléctricas
+
+Planchas
+
+Centros de planchado
+
+Aspiradoras pequeñas
+
+Robots aspiradores
+
+Calientacamas
+
+Relojes digitales
+
+Termómetros digitales
+
+Dispensadores de agua eléctricos
+
+Dispensadores de jabón automáticos
+
+🪛 6. Equipos de iluminación
+
+Ampolletas LED
+
+Tubos fluorescentes
+
+Focos halógenos
+
+Lámparas de escritorio
+
+Lámparas UV
+
+Reflectores LED
+
+Lámparas inteligentes (smart bulbs)
+
+Faroles solares con batería
+
+Paneles LED
+
+🧒 7. Juguetes y equipos de ocio
+
+Autos RC
+
+Aviones RC
+
+Drones de juguete
+
+Robots educativos
+
+Consolas portátiles
+
+Pistolas láser de juguete
+
+Casas inteligentes mini para niños
+
+Peluches electrónicos
+
+Juegos interactivos
+
+Teclados musicales eléctricos
+
+Guitarras eléctricas
+
+Baterías electrónicas
+
+Patines eléctricos
+
+Hoverboards
+
+Scooters eléctricos (infantiles)
+
+💡 8. Aparatos de vigilancia y seguridad
+
+Cámaras de seguridad
+
+Sistemas DVR
+
+Alarmas electrónicas
+
+Cerraduras inteligentes
+
+Sensores de movimiento
+
+Sensores magnéticos
+
+Timbradores digitales
+
+Mirillas digitales
+
+Videoporteros
+
+Detectores de humo electrónicos
+
+Detectores de gas electrónicos
+
+🚗 9. Equipos electrónicos de vehículos
+
+Radios de auto
+
+Pantallas Android Auto
+
+GPS
+
+Dashcams
+
+Cargadores de auto
+
+Conversores de energía
+
+Amplificadores
+
+Sensores de estacionamiento
+
+Controles de alarma
+
+Sistemas de encendido remoto
+
+⛑️ 10. Aparatos médicos (uso doméstico permitidos en REP)
+
+Tensiométros electrónicos
+
+Oxímetros
+
+Termómetros digitales
+
+Glucómetros
+
+Nebulizadores
+
+Equipos de electroestimulación muscular
+
+Básculas digitales
+
+Masajeadores eléctricos
+
+🔋 11. Equipos que contienen baterías o acumuladores
+
+Power banks
+
+Baterías de notebook
+
+Baterías de celular
+
+Baterías de herramientas
+
+Baterías de cámaras
+
+Cargadores de baterías
+
+Baterías externas portátiles
+
+Dispositivos IoT con batería integrada
+
+🧲 12. Otros aparatos eléctricos y electrónicos
+
+Timbres eléctricos
+
+Estabilizadores de voltaje
+
+UPS
+
+Transformadores
+
+Temporizadores digitales
+
+Controladores de riego automáticos
+
+Antenas WiFi
+
+Dispositivos domóticos
+
+Sensores ambientales
+
+Purificadores de agua eléctricos

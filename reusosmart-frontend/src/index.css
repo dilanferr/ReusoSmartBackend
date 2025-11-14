@@ -126,3 +126,44 @@ h2, h3 {
 [data-state='closed'] {
   animation: accordion-up 0.3s ease-in;
 }
+@keyframes fade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade {
+  animation: fade 0.18s ease-out;
+}
+/* Animación de aparición */
+@keyframes fade {
+  from { 
+    opacity: 0; 
+    transform: translateY(-4px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-fade {
+  animation: fade 0.18s ease-out;
+}
+
+/* Ocultar scrollbars para el selector tipo alarma */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scroll snap para el wheel time picker */
+.snap-center {
+  scroll-snap-align: center;
+}
+
+.snap-y {
+  scroll-snap-type: y mandatory;
+}
