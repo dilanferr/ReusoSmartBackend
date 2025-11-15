@@ -16,6 +16,7 @@ import Terms from "./components/terms";
 import Profile from "./components/Profile";
 import AdminDashboard from "./components/AdminDashboard";
 import InfoPuntos from "./components/detPuntos";
+import EditPuntos from "./components/EditPuntos";
 
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
             <Route path="/resetPassword" element={<ResetPassword />} />
             <Route path="/perfil" element={<Profile />} />
             <Route path="/infopuntos" element={<InfoPuntos />} />
+            <Route path="/puntos/editar" element={<EditPuntos />} />
             <Route path="/admin" element={<AdminDashboard />} />  {/* Ruta directa al Dashboard de Administración */}
           </Routes>
         </main>

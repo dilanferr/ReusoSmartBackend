@@ -76,7 +76,8 @@ const Profile = () => {
       setMapLoading(true);
       setMapError(null);
       try {
-        const res = await fetch("http://localhost:5000/api/puntos");
+        const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5050";
+        const res = await fetch(`${API_BASE}/api/puntos`);
         if (!res.ok) throw new Error("Error al obtener los puntos");
         const data = await res.json();
         setMapPoints(data);
@@ -208,7 +209,8 @@ const Profile = () => {
 
     try {
       setCreateLoading(true);
-      const res = await fetch("http://localhost:5000/api/puntos/crear", {
+      const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5050";
+      const res = await fetch(`${API_BASE}/api/puntos/crear`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -670,7 +672,12 @@ const Profile = () => {
                   return (
                     <button
                       key={key}
-                      onClick={() => setPointsAction(key)}
+                      onClick={() => {
+                        setPointsAction(key);
+                        if (key === "edit") {
+                          navigate("/puntos/editar");
+                        }
+                      }}
                       className={`${base} ${isActive ? active : inactive}`}
                       aria-pressed={isActive}
                     >

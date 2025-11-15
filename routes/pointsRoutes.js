@@ -77,8 +77,7 @@ router.get("/", async (req, res) => {
     }
     const puntos = await Punto.find(filter).lean();
     const sanitized = puntos.map((doc) => {
-      // Quitar claves no deseadas en la respuesta
-      const { id, estado, ...rest } = doc;
+      const { id, estado, tipo_punto, ...rest } = doc;
       return rest;
     });
     res.json(sanitized);
@@ -94,6 +93,7 @@ router.get("/sanitized", async (_req, res) => {
     const sanitized = puntos.map((doc) => {
       delete doc.id;
       delete doc.estado;
+      delete doc.tipo_punto;
       return doc;
     });
     res.json(sanitized);
@@ -161,9 +161,6 @@ router.route("/")
       const nombre_punto = typeof rest.nombre_punto === "string" && rest.nombre_punto.trim()
         ? rest.nombre_punto.trim()
         : "Punto Reciclaje";
-      const tipo_punto = typeof rest.tipo_punto === "string" && rest.tipo_punto.trim()
-        ? rest.tipo_punto.trim()
-        : "Municipal";
 
       const materiales_aceptados = Array.isArray(rest.materiales_aceptados)
         ? rest.materiales_aceptados
@@ -192,7 +189,6 @@ router.route("/")
         encargado,
         administrador,
         nombre_punto,
-        tipo_punto,
         direccion_completa: rest.direccion_completa,
         tipo_via: rest.tipo_via,
         nombre_via: rest.nombre_via,
@@ -214,6 +210,7 @@ router.route("/")
       const plain = await Punto.findById(saved._id).lean();
       delete plain.id;
       delete plain.estado;
+      delete plain.tipo_punto;
       failStage = "respond";
       // Evita posibles problemas de serialización en Express 5 usando send de string
       res.status(201).type("application/json").send(JSON.stringify(plain));
@@ -251,9 +248,6 @@ router.post("/crear", async (req, res) => {
     const nombre_punto = typeof rest.nombre_punto === "string" && rest.nombre_punto.trim()
       ? rest.nombre_punto.trim()
       : "Punto Reciclaje";
-    const tipo_punto = typeof rest.tipo_punto === "string" && rest.tipo_punto.trim()
-      ? rest.tipo_punto.trim()
-      : "Municipal";
 
     const materiales_aceptados = Array.isArray(rest.materiales_aceptados)
       ? rest.materiales_aceptados
@@ -281,7 +275,6 @@ router.post("/crear", async (req, res) => {
       encargado,
       administrador,
       nombre_punto,
-      tipo_punto,
       direccion_completa: rest.direccion_completa,
       tipo_via: rest.tipo_via,
       nombre_via: rest.nombre_via,
@@ -303,6 +296,7 @@ router.post("/crear", async (req, res) => {
     const plain = await Punto.findById(saved._id).lean();
     delete plain.id;
     delete plain.estado;
+    delete plain.tipo_punto;
     failStage = "respond";
     res.status(201).type("application/json").send(JSON.stringify(plain));
   } catch (err) {
@@ -313,6 +307,112 @@ router.post("/crear", async (req, res) => {
     res.status(400).json({ message: "Error al crear punto", stage: failStage, error: err?.message || String(err), stack: typeof err?.stack === "string" ? err.stack : "no-stack" });
   }
 });
+
+// Actualizar un punto existente por ID
+router.put("/:id", async (req, res) => {
+  let failStage = "init";
+  try {
+    const id = String(req.params.id || "").trim();
+    if (!id) {
+      return res.status(400).json({ message: "ID inválido" });
+    }
+
+    const data = req.body || {};
+    failStage = "sanitize-input";
+    const { estado, tipo_punto, id: _ignored, ...rest } = data;
+
+    failStage = "normalize-region";
+    const { region_nombre, region_abreviatura } = normalizeRegionFields(rest);
+
+    // Normalizaciones y valores por defecto
+    const telefono = typeof rest.telefono === "string" && rest.telefono.trim()
+      ? rest.telefono.trim()
+      : undefined;
+    const horario = typeof rest.horario === "string" && rest.horario.trim()
+      ? rest.horario.trim()
+      : undefined;
+    const encargado = typeof rest.encargado === "string" && rest.encargado.trim()
+      ? rest.encargado.trim()
+      : undefined;
+    const administrador = typeof rest.administrador === "string" && rest.administrador.trim()
+      ? rest.administrador.trim()
+      : undefined;
+    const nombre_punto = typeof rest.nombre_punto === "string" && rest.nombre_punto.trim()
+      ? rest.nombre_punto.trim()
+      : undefined;
+
+    const materiales_aceptados = Array.isArray(rest.materiales_aceptados)
+      ? rest.materiales_aceptados
+          .map((m) => (typeof m === "string" ? m.trim() : ""))
+          .filter((m) => m.length > 0)
+      : undefined;
+
+    // Preparar coordenadas; si faltan, intentar geocodificar
+    failStage = "geocode";
+    let latitud = typeof rest.latitud === "number" ? rest.latitud : undefined;
+    let longitud = typeof rest.longitud === "number" ? rest.longitud : undefined;
+    if (latitud == null || longitud == null) {
+      const geo = await geocodeAddress({
+        direccion: rest.direccion_completa,
+        comuna: rest.comuna_nombre,
+        region: region_nombre,
+      });
+      if (geo) {
+        latitud = geo.latitud;
+        longitud = geo.longitud;
+      }
+    }
+
+    failStage = "prepare-update";
+    const update = {
+      ...(encargado != null ? { encargado } : {}),
+      ...(administrador != null ? { administrador } : {}),
+      ...(nombre_punto != null ? { nombre_punto } : {}),
+      ...(typeof rest.direccion_completa === "string" ? { direccion_completa: rest.direccion_completa } : {}),
+      ...(typeof rest.tipo_via === "string" ? { tipo_via: rest.tipo_via } : {}),
+      ...(typeof rest.nombre_via === "string" ? { nombre_via: rest.nombre_via } : {}),
+      ...(typeof rest.comuna_id === "string" ? { comuna_id: rest.comuna_id } : {}),
+      ...(typeof rest.comuna_nombre === "string" ? { comuna_nombre: rest.comuna_nombre } : {}),
+      ...(typeof rest.region_id === "string" ? { region_id: rest.region_id } : {}),
+      ...(typeof region_nombre === "string" ? { region_nombre } : {}),
+      ...(typeof region_abreviatura === "string" ? { region_abreviatura } : {}),
+      ...(typeof latitud === "number" ? { latitud } : {}),
+      ...(typeof longitud === "number" ? { longitud } : {}),
+      ...(telefono != null ? { telefono } : {}),
+      ...(horario != null ? { horario } : {}),
+      ...(materials_update(materiales_aceptados)),
+    };
+
+    // Ejecutar actualización
+    failStage = "update";
+    const updated = await Punto.findByIdAndUpdate(
+      id,
+      { $set: update, $unset: { tipo_electronico: "" } },
+      { new: true, runValidators: true }
+    ).lean();
+    if (!updated) {
+      return res.status(404).json({ message: "Punto no encontrado" });
+    }
+
+    // Sanitizar salida
+    delete updated.id;
+    delete updated.estado;
+    delete updated.tipo_punto;
+    failStage = "respond";
+    res.status(200).json(updated);
+  } catch (err) {
+    console.error("[PUT /api/puntos/:id] stage:", failStage);
+    console.error("[PUT /api/puntos/:id] error:", err);
+    if (err && err.stack) console.error("[PUT /api/puntos/:id] stack:\n", err.stack);
+    try { res.setHeader("X-Fail-Stage", String(failStage)); } catch {}
+    res.status(400).json({ message: "Error al actualizar punto", stage: failStage, error: err?.message || String(err) });
+  }
+});
+
+function materials_update(materiales_aceptados) {
+  if (materiales_aceptados == null) return {};
+  return { materiales_aceptados };
+}
 
 export default router;
 

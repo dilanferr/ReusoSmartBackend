@@ -13,6 +13,7 @@ const recyclePhoneIcon = new L.Icon({
 });
 
 export default function Points() {
+  const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5050";
   const [puntos, setPuntos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -20,7 +21,7 @@ export default function Points() {
   useEffect(() => {
     const fetchPuntos = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/puntos");
+        const res = await fetch(`${API_BASE}/api/puntos`);
         if (!res.ok) throw new Error("Error al obtener los puntos");
         const data = await res.json();
         setPuntos(data);

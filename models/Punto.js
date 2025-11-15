@@ -6,7 +6,6 @@ const puntoSchema = new mongoose.Schema(
     encargado: { type: String },
     administrador: { type: String },
     nombre_punto: { type: String },
-    tipo_punto: { type: String, default: "Municipal" },
     direccion_completa: { type: String },
     tipo_via: { type: String },
     nombre_via: { type: String },
@@ -37,14 +36,10 @@ puntoSchema.pre("validate", function (next) {
   if (!this.horario || String(this.horario).trim() === "") {
     this.horario = "Horario no especificado";
   }
-  if (!this.tipo_punto || String(this.tipo_punto).trim() === "") {
-    this.tipo_punto = "Municipal";
-  }
   if (!Array.isArray(this.materiales_aceptados)) {
     this.materiales_aceptados = [];
   }
   next();
-
 });
 
 export default mongoose.model("Punto", puntoSchema);

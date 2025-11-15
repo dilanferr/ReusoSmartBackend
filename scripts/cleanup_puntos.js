@@ -8,7 +8,7 @@ async function run() {
   try {
     await mongoose.connect(process.env.MONGO_URI);
     console.log("✅ Conectado a MongoDB");
-    const result1 = await Punto.collection.updateMany({}, { $unset: { estado: "", id: "" } });
+    const result1 = await Punto.collection.updateMany({}, { $unset: { estado: "", id: "", tipo_punto: "" } });
     console.log("🧹 updateMany (native) →", result1);
   } catch (err) {
     console.error("❌ Error:", err.message);

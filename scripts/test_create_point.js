@@ -17,7 +17,6 @@ async function main() {
       encargado: "Fundación",
       administrador: "DEMARCO",
       nombre_punto: "Punto Test",
-      tipo_punto: "Municipal",
       direccion_completa: "Av. Apoquindo 3000",
       comuna_nombre: "Las Condes",
       region_nombre: "Región Metropolitana de Santiago",
@@ -35,6 +34,7 @@ async function main() {
       const plain = saved.toObject();
       delete plain.id;
       delete plain.estado;
+      delete plain.tipo_punto;
       console.log("Saved OK:", plain._id.toString());
       console.log("Doc keys:", Object.keys(plain));
     } catch (err) {

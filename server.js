@@ -216,7 +216,7 @@ app.get("/api/_health", (_req, res) => {
 // Limpia campos no deseados en documentos existentes: elimina `estado` e `id`.
 app.post("/api/_maintenance/cleanup-fields", async (_req, res) => {
   try {
-    const result = await Punto.updateMany({}, { $unset: { estado: "", id: "" } });
+    const result = await Punto.updateMany({}, { $unset: { estado: "", id: "", tipo_punto: "" } });
     res.json({ ok: true, modifiedCount: result.modifiedCount });
   } catch (err) {
     res.status(500).json({ ok: false, error: err.message });

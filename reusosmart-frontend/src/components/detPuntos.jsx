@@ -9,6 +9,7 @@ import { Search } from "lucide-react";
 
 
 function InfoPuntos() {
+  const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5050";
   const [puntos, setPuntos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
@@ -20,7 +21,7 @@ function InfoPuntos() {
 
   const fetchdetPuntos = async () => {
    try {
-    const response = await fetch("http://localhost:5000/api/puntos");
+    const response = await fetch(`${API_BASE}/api/puntos`);
     const data = await response.json();
     setPuntos(data);
     setLoading(false);

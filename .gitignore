@@ -1,0 +1,38 @@
+# ====== NODE ======
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ====== BUILD / DIST ======
+dist/
+build/
+.vite/
+
+# ====== ENVIRONMENTS ======
+.env
+.env.local
+.env.*.local
+
+# ====== LOGS ======
+*.log
+logs/
+debug.log
+error.log
+
+# ====== SYSTEM ======
+.DS_Store
+Thumbs.db
+
+# ====== EDITOR ======
+.vscode/
+.idea/
+
+# ====== CACHE ======
+.cache/
+.temp/
+.tmp/
+
+# ====== TEST ======
+coverage/
