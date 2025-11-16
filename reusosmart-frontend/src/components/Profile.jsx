@@ -240,6 +240,23 @@ const Profile = () => {
     }
   };
 
+  const handleDeletePoint = async (id) => {
+    const ok = window.confirm("¿Eliminar este punto?");
+    if (!ok) return;
+    try {
+      const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:5050";
+      const res = await fetch(`${API_BASE}/api/puntos/${id}`, { method: "DELETE" });
+      if (!res.ok && res.status !== 204) {
+        const txt = await res.text();
+        throw new Error(txt || "Error HTTP");
+      }
+      setMapPoints((prev) => prev.filter((p) => p._id !== id));
+      setPointsAction(null);
+    } catch (err) {
+      setMapError("No se pudo eliminar el punto.");
+    }
+  };
+
   const handleLogout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
@@ -596,6 +613,14 @@ const Profile = () => {
                                 >
                                   🌍 Ver en Google Maps
                                 </a>
+                                {pointsAction === "delete" && (
+                                  <button
+                                    onClick={() => handleDeletePoint(punto._id)}
+                                    className="mt-3 w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                                  >
+                                    Eliminar punto
+                                  </button>
+                                )}
                               </div>
                             </Popup>
                           </Marker>
@@ -649,6 +674,14 @@ const Profile = () => {
                               >
                                 🌍 Ver en Google Maps
                               </a>
+                              {pointsAction === "delete" && (
+                                <button
+                                  onClick={() => handleDeletePoint(punto._id)}
+                                  className="mt-3 w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700"
+                                >
+                                  Eliminar punto
+                                </button>
+                              )}
                             </div>
                           </Popup>
                         </Marker>
@@ -676,6 +709,9 @@ const Profile = () => {
                         setPointsAction(key);
                         if (key === "edit") {
                           navigate("/puntos/editar");
+                        }
+                        if (key === "delete") {
+                          navigate("/puntos/eliminar");
                         }
                       }}
                       className={`${base} ${isActive ? active : inactive}`}

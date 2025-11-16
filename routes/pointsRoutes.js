@@ -409,6 +409,22 @@ router.put("/:id", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = String(req.params.id || "").trim();
+    if (!id) {
+      return res.status(400).json({ message: "ID inválido" });
+    }
+    const deleted = await Punto.findByIdAndDelete(id).lean();
+    if (!deleted) {
+      return res.status(404).json({ message: "Punto no encontrado" });
+    }
+    res.status(204).send();
+  } catch (err) {
+    res.status(400).json({ message: "Error al eliminar punto", error: err?.message || String(err) });
+  }
+});
+
 function materials_update(materiales_aceptados) {
   if (materiales_aceptados == null) return {};
   return { materiales_aceptados };

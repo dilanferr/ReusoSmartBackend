@@ -17,6 +17,7 @@ import Profile from "./components/Profile";
 import AdminDashboard from "./components/AdminDashboard";
 import InfoPuntos from "./components/detPuntos";
 import EditPuntos from "./components/EditPuntos";
+import DeletePuntos from "./components/DeletePuntos";
 
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
             <Route path="/perfil" element={<Profile />} />
             <Route path="/infopuntos" element={<InfoPuntos />} />
             <Route path="/puntos/editar" element={<EditPuntos />} />
+            <Route path="/puntos/eliminar" element={<DeletePuntos />} />
             <Route path="/admin" element={<AdminDashboard />} />  {/* Ruta directa al Dashboard de Administración */}
           </Routes>
         </main>

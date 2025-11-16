@@ -98,13 +98,36 @@ export default function Points() {
                 >
                   <Popup>
                     <div className="text-sm leading-relaxed">
-                      <h3 className="font-bold text-emerald-700 mb-1">
-                        {punto.tipo_electronico}
+                      <h3 className="font-bold text-emerald-700 mb-2">
+                        {punto.nombre_punto || "Punto de Reciclaje"}
                       </h3>
+                      {Array.isArray(punto.materiales_aceptados) && punto.materiales_aceptados.length > 0 ? (
+                        <div className="mb-2">
+                          <div className="font-medium text-gray-800 mb-1">Materiales aceptados:</div>
+                          <div className="flex flex-wrap gap-2">
+                            {punto.materiales_aceptados.map((m, idx) => (
+                              <span
+                                key={`${punto._id || punto.id || idx}-mat-${idx}`}
+                                className="inline-block px-2 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs border border-emerald-200"
+                              >
+                                {m}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      ) : (
+                        <p className="text-gray-600 mb-2">Materiales no especificados</p>
+                      )}
                       <p>📍 <b>Dirección:</b> {punto.direccion_completa}</p>
                       <p>🏙️ <b>Comuna:</b> {punto.comuna_nombre}</p>
                       <p>⏰ <b>Horario:</b> {punto.horario || "No disponible"}</p>
                       <p>☎️ <b>Teléfono:</b> {punto.telefono || "No disponible"}</p>
+                      <a
+                        href="/infopuntos"
+                        className="inline-block mt-2 mr-3 text-emerald-600 hover:underline font-medium"
+                      >
+                        📄 Ver detalles completos
+                      </a>
                       <a
                         href={`https://www.google.com/maps?q=${punto.latitud},${punto.longitud}`}
                         target="_blank"

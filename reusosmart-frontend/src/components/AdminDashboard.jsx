@@ -205,27 +205,31 @@ export default function AdminDashboard() {
           </Card>
         </TabsContent>
 
-        {/* Puntos: tabla por comuna */}
+        {/* Puntos: resumen en tarjetas */}
         <TabsContent value="puntos">
-          <Card>
-            <CardHeader><CardTitle>Estadísticas por Punto de Reciclaje</CardTitle></CardHeader>
+          <Card className="mt-6">
             <CardContent>
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableCell>Comuna</TableCell>
-                    <TableCell>Cantidad de puntos</TableCell>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {pointsByComuna.map((row, i) => (
-                    <TableRow key={i}>
-                      <TableCell>{row.name}</TableCell>
-                      <TableCell>{row.puntos}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {points.slice(0, 60).map((p, idx) => {
+                  const materialesContiene = String(p.tipo_electronico || '').split(',').map(s => s.trim()).filter(Boolean)
+                  return (
+                    <div key={p._id || idx} className="border border-gray-200 rounded-xl p-4 bg-white shadow-sm">
+                      <div className="font-semibold text-gray-900 mb-2">{p.nombre_punto || 'Punto de Reciclaje'}</div>
+                      {materialesContiene.length ? (
+                        <div className="flex flex-wrap gap-2">
+                          {materialesContiene.map((m, i) => (
+                            <span key={`${p._id || idx}-cont-${i}`} className="px-3 py-1 text-sm rounded-full bg-emerald-100 text-emerald-700 border border-emerald-200">
+                              {m}
+                            </span>
+                          ))}
+                        </div>
+                      ) : (
+                        <div className="text-sm text-gray-500">Sin materiales registrados</div>
+                      )}
+                    </div>
+                  )
+                })}
+              </div>
             </CardContent>
           </Card>
         </TabsContent>

@@ -40,10 +40,14 @@ function InfoPuntos() {
     // Filtrar puntos
   const filteredPuntos = useMemo(() => {
     return puntos.filter((p) => {
+      const materialsText = Array.isArray(p.materiales_aceptados)
+        ? p.materiales_aceptados.join(" ").toLowerCase()
+        : "";
       const matchesSearch =
         (p.nombre_punto?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
         (p.direccion_completa?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
-        (p.tipo_electronico?.toLowerCase() || "").includes(searchTerm.toLowerCase());
+        (p.tipo_electronico?.toLowerCase() || "").includes(searchTerm.toLowerCase()) ||
+        materialsText.includes(searchTerm.toLowerCase());
       const matchesComuna = selectedComuna === "all" || p.comuna_nombre === selectedComuna;
       return matchesSearch && matchesComuna;
     });
@@ -156,12 +160,21 @@ function InfoPuntos() {
                           <div className="text-gray-700 pl-6 text-lg">{punto.region_nombre}</div>
                         </div>
                         
-                        {punto.tipo_electronico && (
+                        {Array.isArray(punto.materiales_aceptados) && punto.materiales_aceptados.length > 0 ? (
                           <div>
-                            <div className="font-semibold mb-1 text-green-800 pl-6 text-xl">♻️ Materiales aceptados:</div>
-                            <div className="text-gray-700 pl-6 text-lg">{punto.tipo_electronico}</div>
+                            <div className="font-semibold mb-2 text-green-800 pl-6 text-xl">♻️ Materiales aceptados:</div>
+                            <div className="pl-6 flex flex-wrap gap-2">
+                              {punto.materiales_aceptados.map((m, idx) => (
+                                <span
+                                  key={`${punto._id || punto.id || idx}-mat-${idx}`}
+                                  className="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm border border-green-200"
+                                >
+                                  {m}
+                                </span>
+                              ))}
+                            </div>
                           </div>
-                        )}
+                        ) : null}
                         
                         {punto.horario && (
                           <div>
