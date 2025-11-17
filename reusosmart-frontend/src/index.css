@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Colores y fondo base */
+body {
+  background-color: var(--color-ecoLight);
+  color: var(--color-ecoDark);
+  font-family: "Poppins", sans-serif;
+}
+
+:root {
+  --color-ecoDark: #0f4d3f;
+  --color-ecoLight: #e9f8f0;
+  --color-ecoAccent: #009c73;
+  --color-ecoSoft: #f6fff9;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: var(--color-ecoLight);
+  color: var(--color-ecoDark);
+}
+
+/* Navbar superior */
+.navbar {
+  background-color: var(--color-ecoAccent);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar */
+.sidebar {
+  background-color: var(--color-ecoSoft);
+  border-right: 1px solid #c6e7d6;
+  min-height: calc(100vh - 80px);
+}
+
+.sidebar button {
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.sidebar button:hover {
+  background-color: #e5f8f0;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: white;
+  border: 1px solid #00a67a;
+  border-radius: 6px;
+  padding: 10px 12px;
+  transition: 0.3s;
+}
+
+input:focus {
+  border-color: #007854;
+  outline: none;
+  box-shadow: 0 0 0 2px #a7f3d0;
+}
+
+/* Botones */
+button {
+  transition: background-color 0.3s ease;
+}
+
+button.bg-emerald-600:hover {
+  background-color: #007854;
+}
+
+button.bg-red-500:hover {
+  background-color: #dc2626;
+}
+
+/* Títulos */
+h2, h3 {
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+/* Sombras suaves */
+.shadow-sm {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Tarjetas de medallas */
+.medalla-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.medalla-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 128, 96, 0.2);
+}
+
+/* Animaciones para acordeón */
+@keyframes accordion-down {
+  from { height: 0 }
+  to { height: var(--radix-accordion-content-height) }
+}
+
+@keyframes accordion-up {
+  from { height: var(--radix-accordion-content-height) }
+  to { height: 0 }
+}
+
+[data-state='open'] {
+  animation: accordion-down 0.3s ease-out;
+}
+
+[data-state='closed'] {
+  animation: accordion-up 0.3s ease-in;
+}
+@keyframes fade {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade {
+  animation: fade 0.18s ease-out;
+}
+/* Animación de aparición */
+@keyframes fade {
+  from { 
+    opacity: 0; 
+    transform: translateY(-4px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+.animate-fade {
+  animation: fade 0.18s ease-out;
+}
+
+/* Ocultar scrollbars para el selector tipo alarma */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Scroll snap para el wheel time picker */
+.snap-center {
+  scroll-snap-align: center;
+}
+
+.snap-y {
+  scroll-snap-type: y mandatory;
+}
